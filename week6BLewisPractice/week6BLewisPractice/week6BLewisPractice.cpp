@@ -39,7 +39,7 @@ int main()
             //we have found Y
             //check before and after for L and not R
             //loop back from i
-            int LisCorrect = 1;
+            int LisCorrect = 0;
             bool LisThere = false;
             for (int a = i - L.length(), b = 0; a > 0 && b < L.length(); a++, b++)
             {
@@ -55,7 +55,7 @@ int main()
             }
             //if LisThere is true then L is before Y
             bool RisNotThere = false;
-            int RisCorrect = 1;
+            int RisCorrect = 0;
             for (int a = j + 1, b = 0; a < S.length() && b < R.length(); a++, b++)
             {
                 if (S[a] != R[b])
@@ -72,6 +72,8 @@ int main()
             if (RisNotThere && LisThere)
             {
                 cout << "position " << i << " can replace" << endl;
+                //we now can replace the Y string
+                
             }
         }
     }
