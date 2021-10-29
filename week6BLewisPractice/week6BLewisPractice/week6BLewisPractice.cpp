@@ -18,7 +18,7 @@ int main()
     cout << "Starting string: " << S << endl;
     //loop through string
     bool stringIsCorrect = false;
-    int j, k;
+    int j, k, c;
     for (int i = 0; i < S.length(); i++)
     {
         //if we find the first character of Y
@@ -26,7 +26,7 @@ int main()
         {
             //at each character, loop for the length of Y to see if Y is there
             stringIsCorrect = true;
-            for (j = i + 1, k = 1; j < Y.length() - 1 && stringIsCorrect; j++, k++)
+            for (j = i + 1, k = 1, c = 0; c < Y.length() - 1 && stringIsCorrect; j++, k++, c++)
             {
                 if (S[j] != Y[k])
                 {
@@ -65,7 +65,7 @@ int main()
                     RisCorrect++;
                 }
             }
-            if (RisCorrect == R.length())
+            if (RisCorrect == R.length() || j >= S.length())
             {
                 RisNotThere = true;
             }
@@ -87,7 +87,7 @@ int main()
                     newString.push_back(X[counter]);
                 }
                 //add the end
-                for (int counter = j + 1; counter < S.length(); counter++)
+                for (int counter = j; counter < S.length(); counter++)
                 {
                     newString.push_back(S[counter]);
                 }
