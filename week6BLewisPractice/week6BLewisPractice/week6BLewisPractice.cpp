@@ -9,12 +9,13 @@ using namespace std;
 int main()
 {
     //strings
-    string S = "ATGGATGAGTT";
+    string S = "ATGGATGAGTGGAT";
     string Y = "AT";
     string L = "TGG";
     string R = "TT";
     string X = "TT";
     int lengthOfL = L.length();
+    cout << "Starting string: " << S << endl;
     //loop through string
     bool stringIsCorrect = false;
     int j, k;
@@ -71,9 +72,27 @@ int main()
             //at this point we know whether we can replace
             if (RisNotThere && LisThere)
             {
-                cout << "position " << i << " can replace" << endl;
+                // cout << "position " << i << " can replace" << endl;
                 //we now can replace the Y string
-                
+                //i is the start of Y and j is the end of Y
+                string newString = "";
+                //add the start
+                for (int counter = 0; counter < i; counter++)
+                {
+                    newString.push_back(S[counter]);
+                }
+                //replace Y with X
+                for (int counter = 0; counter < X.length(); counter++)
+                {
+                    newString.push_back(X[counter]);
+                }
+                //add the end
+                for (int counter = j + 1; counter < S.length(); counter++)
+                {
+                    newString.push_back(S[counter]);
+                }
+                //we should now have the new string
+                cout << "new string: " << newString << endl;
             }
         }
     }
